@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ImageAnnotationCollection aimVersion="AIMv4_0" xmlns="gme://caCORE.caCORE/4.4/edu.northwestern.radiology.AIM" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="gme://caCORE.caCORE/4.4/edu.northwestern.radiology.AIM AIM_v4_rv44_XML.xsd">
+<uniqueIdentifier root="184d5e9j0kgalar5x7rjkhbxmqnxzlxvwymc24zj"></uniqueIdentifier>
+<dateTime value="20150206201302"></dateTime>
+<user>
+<name value="anonymized"></name>
+<loginName value="anonymized"></loginName>
+<roleInTrial></roleInTrial>
+</user>
+<equipment>
+<manufacturerName value="GE MEDICAL SYSTEMS"></manufacturerName>
+<manufacturerModelName value="Discovery CT750 HD"></manufacturerModelName>
+<softwareVersion value="gmp_hde.74"></softwareVersion>
+</equipment>
+<person>
+<name value="anonymized"></name>
+<id value="R01-122"></id>
+<birthDate value=""></birthDate>
+<sex value="M"></sex>
+<ethnicGroup></ethnicGroup>
+</person>
+<imageAnnotations>
+<ImageAnnotation>
+<uniqueIdentifier root="2.25.327337953000029142600773429775753861526"></uniqueIdentifier>
+<typeCode code="LT1" codeSystemName="Lung Template">
+<iso:displayName value="Lung Template" xmlns:iso="uri:iso.org:21090"></iso:displayName>
+</typeCode>
+<dateTime value="20150206201302"></dateTime>
+<name value="Lesion1~sp1~-~sp1~-1~sp1~#FFFFFF"></name>
+<comment value="CT / THIN LUNG WINDOW / 48"></comment>
+<imagingPhysicalEntityCollection>
+<ImagingPhysicalEntity>
+<uniqueIdentifier root="2.25.153946046089133781315025589258517242441"></uniqueIdentifier>
+<typeCode code="RID1327" codeSystemName="RadLex_3.9.1" codeSystemVersion="">
+<iso:displayName value="upper lobe of left lung" xmlns:iso="uri:iso.org:21090"></iso:displayName>
+</typeCode>
+<annotatorConfidence value="0.0"></annotatorConfidence>
+<label value="Anatomic Location"></label>
+</ImagingPhysicalEntity>
+</imagingPhysicalEntityCollection>
+<calculationEntityCollection>
+<CalculationEntity>
+<uniqueIdentifier root="ifh25c6wtegv83l9w9us1bmlmd4yj0syd6igo5vh"></uniqueIdentifier>
+<typeCode code="LineLength" codeSystemName="private">
+<iso:displayName value="LineLength" xmlns:iso="uri:iso.org:21090"></iso:displayName>
+</typeCode>
+<description value="LineLength"></description>
+<mathML></mathML>
+<calculationResultCollection>
+<CalculationResult type="Scalar" xsi:type="ExtendedCalculationResult">
+<unitOfMeasure value="linear"></unitOfMeasure>
+<dataType code="99EPADD0" codeSystemName="99EPAD" codeSystemVersion="1">
+<iso:displayName value="NA" xmlns:iso="uri:iso.org:21090"></iso:displayName>
+</dataType>
+<dimensionCollection>
+<Dimension>
+<index value="0"></index>
+<size value="0"></size>
+<label value="Dimension Label"></label>
+</Dimension>
+</dimensionCollection>
+<calculationDataCollection>
+<CalculationData>
+<value value="0.39724450271571765"></value>
+<coordinateCollection>
+<Coordinate>
+<dimensionIndex value="0"></dimensionIndex>
+<position value="0"></position>
+</Coordinate>
+</coordinateCollection>
+</CalculationData>
+</calculationDataCollection>
+</CalculationResult>
+</calculationResultCollection>
+<algorithm>
+<name value="LineLength"></name>
+<type code="99EPADA0" codeSystemName="99EPAD" codeSystemVersion="1">
+<iso:displayName value="NA" xmlns:iso="uri:iso.org:21090"></iso:displayName>
+</type>
+<version value="1.0"></version>
+</algorithm>
+</CalculationEntity>
+</calculationEntityCollection>
+<imagingObservationEntityCollection>
+<ImagingObservationEntity>
+<uniqueIdentifier root="2.25.171814129176921866570860821120455417882"></uniqueIdentifier>
+<typeCode code="RID39056" codeSystemName="RadLex3.8" codeSystemVersion="">
+<iso:displayName value=" lung mass" xmlns:iso="uri:iso.org:21090"></iso:displayName>
+</typeCode>
+<annotatorConfidence value="0.0"></annotatorConfidence>
+<label value="Lung Nodule"></label>
+<comment></comment>
+<imagingObservationCharacteristicCollection>
+<ImagingObservationCharacteristic>
+<typeCode code="RID5828" codeSystemName="RadLex_3.9.1" codeSystemVersion="">
+<iso:displayName value="peripheral" xmlns:iso="uri:iso.org:21090"></iso:displayName>
+</typeCode>
+<annotatorConfidence value="0.0"></annotatorConfidence>
+<label value="Axial Location"></label>
+<comment></comment>
+</ImagingObservationCharacteristic>
+<ImagingObservationCharacteristic>
+<typeCode code="RID46011" codeSystemName="RadLex.3.10" codeSystemVersion="">
+<iso:displayName value="partially solid" xmlns:iso="uri:iso.org:21090"></iso:displayName>
+</typeCode>
+<typeCode code="LT3" codeSystemName="LungTemplate" codeSystemVersion="">
+<iso:displayName value="Solid greaterThan 5mm" xmlns:iso="uri:iso.org:21090"></iso:displayName>
+</typeCode>
+<annotatorConfidence value="0.0"></annotatorConfidence>
+<label value="Nodule Attenuation"></label>
+<comment></comment>
+</ImagingObservationCharacteristic>
+<ImagingObservationCharacteristic>
+<typeCode code="RID46015" codeSystemName="RadLex3.9.1" codeSystemVersion="">
+<iso:displayName value="internal air bronchogram sign" xmlns:iso="uri:iso.org:21090"></iso:displayName>
+</typeCode>
+<annotatorConfidence value="0.0"></annotatorConfidence>
+<label value="Nodule Internal Features"></label>
+<comment></comment>
+</ImagingObservationCharacteristic>
+<ImagingObservationCharacteristic>
+<typeCode code="RID5809" codeSystemName="RadLex" codeSystemVersion="">
+<iso:displayName value="irregular" xmlns:iso="uri:iso.org:21090"></iso:displayName>
+</typeCode>
+<annotatorConfidence value="0.0"></annotatorConfidence>
+<label value="Nodule Margins-Primary Pattern"></label>
+<comment></comment>
+</ImagingObservationCharacteristic>
+<ImagingObservationCharacteristic>
+<typeCode code="RID34283" codeSystemName="RadLex.3.10" codeSystemVersion="">
+<iso:displayName value="poorly defined" xmlns:iso="uri:iso.org:21090"></iso:displayName>
+</typeCode>
+<annotatorConfidence value="0.0"></annotatorConfidence>
+<label value="Nodule Margins-Secondary Pattern"></label>
+<comment></comment>
+</ImagingObservationCharacteristic>
+<ImagingObservationCharacteristic>
+<typeCode code="RID5757" codeSystemName="RadLex" codeSystemVersion="">
+<iso:displayName value="complex" xmlns:iso="uri:iso.org:21090"></iso:displayName>
+</typeCode>
+<annotatorConfidence value="0.0"></annotatorConfidence>
+<label value="Nodule Shape"></label>
+<comment></comment>
+</ImagingObservationCharacteristic>
+<ImagingObservationCharacteristic>
+<typeCode code="RID28454" codeSystemName="RadLex" codeSystemVersion="">
+<iso:displayName value="none" xmlns:iso="uri:iso.org:21090"></iso:displayName>
+</typeCode>
+<annotatorConfidence value="0.0"></annotatorConfidence>
+<label value="Nodule Calcification"></label>
+<comment></comment>
+</ImagingObservationCharacteristic>
+<ImagingObservationCharacteristic>
+<typeCode code="RID46035" codeSystemName="RadLex.3.10" codeSystemVersion="">
+<iso:displayName value="entering airway" xmlns:iso="uri:iso.org:21090"></iso:displayName>
+</typeCode>
+<annotatorConfidence value="0.0"></annotatorConfidence>
+<label value="Nodule Associated Findings"></label>
+<comment></comment>
+</ImagingObservationCharacteristic>
+<ImagingObservationCharacteristic>
+<typeCode code="RID4799" codeSystemName="RadLex3.10_NS" codeSystemVersion="">
+<iso:displayName value="emphysema" xmlns:iso="uri:iso.org:21090"></iso:displayName>
+</typeCode>
+<annotatorConfidence value="0.0"></annotatorConfidence>
+<label value="Nodule Periphery"></label>
+<comment></comment>
+</ImagingObservationCharacteristic>
+<ImagingObservationCharacteristic>
+<typeCode code="RID46011" codeSystemName="RadLex3.10_NS" codeSystemVersion="">
+<iso:displayName value="partially solid" xmlns:iso="uri:iso.org:21090"></iso:displayName>
+</typeCode>
+<annotatorConfidence value="0.0"></annotatorConfidence>
+<label value="Satellite Nodules in Primary Lesion Lobe (greater than 4mm noncalcified)"></label>
+<comment></comment>
+</ImagingObservationCharacteristic>
+<ImagingObservationCharacteristic>
+<typeCode code="RID46016" codeSystemName="RadLex3.10_NS" codeSystemVersion="">
+<iso:displayName value="non-solid" xmlns:iso="uri:iso.org:21090"></iso:displayName>
+</typeCode>
+<annotatorConfidence value="0.0"></annotatorConfidence>
+<label value="Nodules in Non-Lesion Lobe Same Lung (greater than 4mm noncalcified)"></label>
+<comment></comment>
+</ImagingObservationCharacteristic>
+<ImagingObservationCharacteristic>
+<typeCode code="RID46011" codeSystemName="RadLex3.10_NS" codeSystemVersion="">
+<iso:displayName value="partially solid" xmlns:iso="uri:iso.org:21090"></iso:displayName>
+</typeCode>
+<annotatorConfidence value="0.0"></annotatorConfidence>
+<label value="Nodules in Contralateral Lung (gretater than 4mm noncalcified)"></label>
+<comment></comment>
+</ImagingObservationCharacteristic>
+<ImagingObservationCharacteristic>
+<typeCode code="RID28473" codeSystemName="RadLex3.10_NS" codeSystemVersion="">
+<iso:displayName value="absent" xmlns:iso="uri:iso.org:21090"></iso:displayName>
+</typeCode>
+<annotatorConfidence value="0.0"></annotatorConfidence>
+<label value="Centrilobular Nodules - Diffuse (RB type nodules)"></label>
+<comment></comment>
+</ImagingObservationCharacteristic>
+<ImagingObservationCharacteristic>
+<typeCode code="RID28472" codeSystemName="RadLex3.10_NS" codeSystemVersion="">
+<iso:displayName value="present" xmlns:iso="uri:iso.org:21090"></iso:displayName>
+</typeCode>
+<annotatorConfidence value="0.0"></annotatorConfidence>
+<label value="Emphysema"></label>
+<comment></comment>
+</ImagingObservationCharacteristic>
+<ImagingObservationCharacteristic>
+<typeCode code="RID28505" codeSystemName="RadLex3.10_NS" codeSystemVersion="">
+<iso:displayName value="centrilobular" xmlns:iso="uri:iso.org:21090"></iso:displayName>
+</typeCode>
+<annotatorConfidence value="0.0"></annotatorConfidence>
+<label value="Primary Emphysema Pattern"></label>
+<comment></comment>
+</ImagingObservationCharacteristic>
+<ImagingObservationCharacteristic>
+<typeCode code="T28" codeSystemName="LungTemplate" codeSystemVersion="">
+<iso:displayName value="upper predominant" xmlns:iso="uri:iso.org:21090"></iso:displayName>
+</typeCode>
+<annotatorConfidence value="0.0"></annotatorConfidence>
+<label value="Primary Distribution"></label>
+<comment></comment>
+</ImagingObservationCharacteristic>
+<ImagingObservationCharacteristic>
+<typeCode code="RID5770" codeSystemName="RadLex3.10_NS" codeSystemVersion="">
+<iso:displayName value="both" xmlns:iso="uri:iso.org:21090"></iso:displayName>
+</typeCode>
+<annotatorConfidence value="0.0"></annotatorConfidence>
+<label value="Primary Emphysema Laterality"></label>
+<comment></comment>
+</ImagingObservationCharacteristic>
+<ImagingObservationCharacteristic>
+<typeCode code="RID46056" codeSystemName="RadLex3.10_NS" codeSystemVersion="">
+<iso:displayName value="not applicable" xmlns:iso="uri:iso.org:21090"></iso:displayName>
+</typeCode>
+<annotatorConfidence value="0.0"></annotatorConfidence>
+<label value="Secondary Emmphysema Pattern"></label>
+<comment></comment>
+</ImagingObservationCharacteristic>
+<ImagingObservationCharacteristic>
+<typeCode code="T36" codeSystemName="LungTemplate" codeSystemVersion="">
+<iso:displayName value="low severity (1-25%)" xmlns:iso="uri:iso.org:21090"></iso:displayName>
+</typeCode>
+<annotatorConfidence value="0.0"></annotatorConfidence>
+<label value="Overall Emmphysema Severity"></label>
+<comment></comment>
+</ImagingObservationCharacteristic>
+<ImagingObservationCharacteristic>
+<typeCode code="RID46026" codeSystemName="RadLex3.10_NS" codeSystemVersion="">
+<iso:displayName value="airway abnormality" xmlns:iso="uri:iso.org:21090"></iso:displayName>
+</typeCode>
+<annotatorConfidence value="0.0"></annotatorConfidence>
+<label value="Lung Parencyma Features"></label>
+<comment></comment>
+</ImagingObservationCharacteristic>
+<ImagingObservationCharacteristic>
+<typeCode code="RID46027" codeSystemName="RadLex3.10_NS" codeSystemVersion="">
+<iso:displayName value="bronchial wall thickening" xmlns:iso="uri:iso.org:21090"></iso:displayName>
+</typeCode>
+<annotatorConfidence value="0.0"></annotatorConfidence>
+<label value="Lung Parencyma Features"></label>
+<comment></comment>
+</ImagingObservationCharacteristic>
+<ImagingObservationCharacteristic>
+<typeCode code="RID28473" codeSystemName="RadLex3.10_NS" codeSystemVersion="">
+<iso:displayName value="absent" xmlns:iso="uri:iso.org:21090"></iso:displayName>
+</typeCode>
+<annotatorConfidence value="0.0"></annotatorConfidence>
+<label value="Fibrosis"></label>
+<comment></comment>
+</ImagingObservationCharacteristic>
+</imagingObservationCharacteristicCollection>
+</ImagingObservationEntity>
+</imagingObservationEntityCollection>
+<markupEntityCollection>
+<MarkupEntity xsi:type="TwoDimensionCircle">
+<uniqueIdentifier root="87v53mes47iweolhkypirb4iwo5ti2247tktp1hn"></uniqueIdentifier>
+<shapeIdentifier value="1"></shapeIdentifier>
+<includeFlag value="true"></includeFlag>
+<lineColor></lineColor>
+<lineOpacity></lineOpacity>
+<lineStyle></lineStyle>
+<lineThickness></lineThickness>
+<imageReferenceUid root="1.3.6.1.4.1.14519.5.2.1.4334.1501.258265389329109794017584995651"></imageReferenceUid>
+<referencedFrameNumber value="1"></referencedFrameNumber>
+<twoDimensionSpatialCoordinateCollection>
+<TwoDimensionSpatialCoordinate>
+<coordinateIndex value="0"></coordinateIndex>
+<x value="335.4087346024636"></x>
+<y value="267.18029115341545"></y>
+</TwoDimensionSpatialCoordinate>
+<TwoDimensionSpatialCoordinate>
+<coordinateIndex value="1"></coordinateIndex>
+<x value="337.70212765957444"></x>
+<y value="271.19372900335946"></y>
+</TwoDimensionSpatialCoordinate>
+</twoDimensionSpatialCoordinateCollection>
+</MarkupEntity>
+</markupEntityCollection>
+<imageReferenceEntityCollection>
+<ImageReferenceEntity xsi:type="DicomImageReferenceEntity">
+<uniqueIdentifier root="2.25.1003758978471069543768776077408307413"></uniqueIdentifier>
+<imageStudy>
+<instanceUid root="1.3.6.1.4.1.14519.5.2.1.4334.1501.210410709002195361911981503755"></instanceUid>
+<startDate value="19950908125251"></startDate>
+<startTime value="12:52:51"></startTime>
+<imageSeries>
+<instanceUid root="1.3.6.1.4.1.14519.5.2.1.4334.1501.184001197767140287220646776339"></instanceUid>
+<modality code="99EPADM0" codeSystemName="99EPAD">
+<iso:displayName value="NA" xmlns:iso="uri:iso.org:21090"></iso:displayName>
+</modality>
+<imageCollection>
+<Image>
+<sopClassUid root=""></sopClassUid>
+<sopInstanceUid root="1.3.6.1.4.1.14519.5.2.1.4334.1501.258265389329109794017584995651"></sopInstanceUid>
+</Image>
+</imageCollection>
+</imageSeries>
+</imageStudy>
+</ImageReferenceEntity>
+</imageReferenceEntityCollection>
+</ImageAnnotation>
+</imageAnnotations>
+</ImageAnnotationCollection>
