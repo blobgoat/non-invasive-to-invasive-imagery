@@ -79,17 +79,33 @@ class PatientDicomDataset(Dataset):
 def collate_fn(batch):
     images, _, gene_values, _ = zip(*batch)
 
-    # Pad images to match max number of images in batch
-    max_images = max(len(img_list) for img_list in images)
-    padded_images = []
-    for img_list in images:
-        pad_count = max_images - len(img_list)
-        if pad_count > 0:
-            pad = [torch.zeros_like(img_list[0]) for _ in range(pad_count)]
-            img_list += pad
-        padded_images.append(torch.stack(img_list))
+    # Ensure all image tensors are in shape [1, D, H, W]
+    processed_images = []
+    max_depth = 0
 
-    batch_images = torch.stack(padded_images)  # [B, N, 1, H, W]
-    gene_tensor = torch.stack(gene_values)     # [B, G]
+    for img_list in images:
+        stacked = []
+        for img in img_list:
+            # Force shape to [1, D, H, W]
+            if img.ndim == 3:         # [1, H, W]
+                img = img.unsqueeze(1)  # -> [1, 1, H, W]
+            elif img.ndim == 2:       # [H, W]
+                img = img.unsqueeze(0).unsqueeze(0)  # -> [1, 1, H, W]
+            stacked.append(img)
+        img_stack = torch.cat(stacked, dim=1)  # shape: [1, D, H, W]
+        processed_images.append(img_stack)
+        max_depth = max(max_depth, img_stack.shape[1])  # track max D
+
+    # Pad to match max D
+    padded_images = []
+    for img in processed_images:
+        d = img.shape[1]
+        if d < max_depth:
+            pad = torch.zeros((1, max_depth - d, img.shape[2], img.shape[3]), device=img.device)
+            img = torch.cat([img, pad], dim=1)
+        padded_images.append(img)
+
+    batch_images = torch.stack(padded_images)  # [B, D, H, W]
+    gene_tensor = torch.stack(gene_values)
 
     return batch_images, None, gene_tensor, None
