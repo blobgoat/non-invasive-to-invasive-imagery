@@ -2,6 +2,7 @@ import numpy as np
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+from tqdm import tqdm
 
 class MedicalImageCNN(nn.Module):
     def __init__(self, output_dim=128):
@@ -60,28 +61,46 @@ class CNNToRNA(nn.Module):
         pooled = features.mean(dim=1)        # [B, emb_dim]
         return self.regressor(pooled)        # [B, num_genes]
 
-def train_model(model, train_loader, val_loader, criterion, optimizer, device, num_epochs=10):
+
+from torch.amp import autocast, GradScaler
+
+from tqdm import tqdm
+
+def train_model(model, train_loader, val_loader, criterion, optimizer, device,
+                num_epochs=50, patience=5, min_delta=0.001):
     model.to(device)
 
     train_losses = []
     val_losses = []
+    scaler = GradScaler()
+
+    best_val_loss = float('inf')
+    patience_counter = 0
 
     for epoch in range(num_epochs):
         model.train()
         running_train_loss = 0.0
 
-        for images, _, gene_values, _ in train_loader:
-            images=torch.stack(images)
-            images = images.to(device)         # [B, N, 1, H, W]
-            gene_values = gene_values.to(device)  # [B, num_genes]
+        print(f"\nEpoch [{epoch + 1}/{num_epochs}]")
+        for images, _, gene_values, _ in tqdm(train_loader, desc="Training", leave=False):
+            images = images.to(device)
+            gene_values = gene_values.to(device)
 
             optimizer.zero_grad()
-            outputs = model(images)
-            loss = criterion(outputs, gene_values)
-            loss.backward()
-            optimizer.step()
+
+            with autocast("cuda"):  # Mixed precision context
+                outputs = model(images)
+                loss = criterion(outputs, gene_values)
+
+            scaler.scale(loss).backward()
+            scaler.step(optimizer)
+            scaler.update()
 
             running_train_loss += loss.item()
+
+            # Optional: free up memory
+            del outputs, loss
+            torch.cuda.empty_cache()
 
         epoch_train_loss = running_train_loss / len(train_loader)
         train_losses.append(epoch_train_loss)
@@ -90,34 +109,32 @@ def train_model(model, train_loader, val_loader, criterion, optimizer, device, n
         model.eval()
         running_val_loss = 0.0
 
-        with torch.no_grad():
-            for images, _, gene_values, _ in val_loader:
-                images = images.to(device)
-                gene_values = gene_values.to(device)
-                outputs = model(images)
-                val_loss = criterion(outputs, gene_values)
-                running_val_loss += val_loss.item()
+        for images, _, gene_values, _ in tqdm(val_loader, desc="Validating", leave=False):
+            images = images.to(device)
+            gene_values = gene_values.to(device)
+
+            with torch.no_grad():
+                with autocast("cuda"):
+                    outputs = model(images)
+                    val_loss = criterion(outputs, gene_values)
+                    running_val_loss += val_loss.item()
+
+            del outputs, val_loss
+            torch.cuda.empty_cache()
 
         epoch_val_loss = running_val_loss / len(val_loader)
         val_losses.append(epoch_val_loss)
 
-        print(f"Epoch [{epoch+1}/{num_epochs}] | Train Loss: {epoch_train_loss:.4f} | Val Loss: {epoch_val_loss:.4f}")
+        print(f"Train Loss: {epoch_train_loss:.4f} | Val Loss: {epoch_val_loss:.4f}")
+
+        # 🔁 Early Stopping
+        if best_val_loss - epoch_val_loss > min_delta:
+            best_val_loss = epoch_val_loss
+            patience_counter = 0
+        else:
+            patience_counter += 1
+            if patience_counter >= patience:
+                print(f"⏹️ Early stopping triggered at epoch {epoch+1}")
+                break
 
     return train_losses, val_losses
-
-
-def test_model(model, test_loader, device):
-    model.eval()
-    all_predictions = []
-    all_labels = []
-
-    with torch.no_grad():
-        for images, _, gene_values, _ in test_loader:
-            images = images.to(device)            # [B, N, 1, H, W]
-            gene_values = gene_values.to(device)  # [B, num_genes]
-
-            outputs = model(images)               # [B, num_genes]
-            all_predictions.append(outputs.cpu().numpy())
-            all_labels.append(gene_values.cpu().numpy())
-
-    return np.concatenate(all_predictions), np.concatenate(all_labels)

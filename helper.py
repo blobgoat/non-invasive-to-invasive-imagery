@@ -40,11 +40,17 @@ class PatientDicomDataset(Dataset):
                     if not os.path.isdir(image_path):
                         continue
 
-                    for file in os.listdir(image_path):
-                        if file.endswith('.dcm'):
-                            full_path = os.path.join(image_path, file)
-                            images.append(full_path)
+                    dcm_files = [f for f in os.listdir(image_path) if f.endswith('.dcm')]
+                    dcm_files = sorted(dcm_files, key=extract_index_number)
 
+                    # Keep only the 32 most central slices
+                    if len(dcm_files) > 8:
+                        center = len(dcm_files) // 2
+                        dcm_files = dcm_files[center - 16 : center + 16]
+
+                    for file in dcm_files:
+                        full_path = os.path.join(image_path, file)
+                        images.append(full_path)
             if patient_id in df.index:
                 self.patient_images.append(images)
                 self.patient_ids.append(patient_id)
@@ -57,55 +63,79 @@ class PatientDicomDataset(Dataset):
     def __getitem__(self, idx):
         image_paths = self.patient_images[idx]
         patient_id = self.patient_ids[idx]
-        gene_values = self.gene_values[idx]
+        raw_gene_values = self.gene_values[idx].values.astype(np.float32)
+        raw_gene_values = np.nan_to_num(raw_gene_values, nan=0.0)
+        gene_values = torch.tensor(raw_gene_values)
+        assert not torch.isnan(gene_values).any(), "Still have NaNs after replacement"
+
         corresponding_genes = self.corresponding_genes
 
-
         images = []
+
         for path in image_paths:
-            dcm = pydicom.dcmread(path)
-            img = dcm.pixel_array.astype(np.float32)
-            img -= img.min()
-            if img.max() != 0:
-                img /= img.max()
-            img = np.expand_dims(img, axis=0)
-            img_tensor = torch.tensor(img)
-            if self.transform:
-                img_tensor = self.transform(img_tensor)
-            images.append(img_tensor)
+            try:
+                dcm = pydicom.dcmread(path)
+                img = dcm.pixel_array.astype(np.float32)
+
+                # Normalize image
+                img -= img.min()
+                if img.max() != 0:
+                    img /= img.max()
+
+                if img.ndim == 3:
+                    # Volume: [D, H, W] → treat as multiple slices
+                    for slice_img in img:
+                        slice_tensor = torch.tensor(slice_img).unsqueeze(0)  # [1, H, W]
+                        if self.transform:
+                            slice_tensor = self.transform(slice_tensor)
+                        images.append(slice_tensor)
+
+                elif img.ndim == 2:
+                    # Single slice: [H, W]
+                    slice_tensor = torch.tensor(img).unsqueeze(0)  # [1, H, W]
+                    if self.transform:
+                        slice_tensor = self.transform(slice_tensor)
+                    images.append(slice_tensor)
+
+                else:
+                    print(f"⚠️ Unexpected shape {img.shape} in file {path} — skipping")
+
+            except Exception as e:
+                print(f"⚠️ Failed to load {path}: {e}")
 
         return images, patient_id, gene_values, corresponding_genes
 
 def collate_fn(batch):
     images, _, gene_values, _ = zip(*batch)
 
-    # Ensure all image tensors are in shape [1, D, H, W]
     processed_images = []
     max_depth = 0
 
     for img_list in images:
-        stacked = []
-        for img in img_list:
-            # Force shape to [1, D, H, W]
-            if img.ndim == 3:         # [1, H, W]
-                img = img.unsqueeze(1)  # -> [1, 1, H, W]
-            elif img.ndim == 2:       # [H, W]
-                img = img.unsqueeze(0).unsqueeze(0)  # -> [1, 1, H, W]
-            stacked.append(img)
-        img_stack = torch.cat(stacked, dim=1)  # shape: [1, D, H, W]
-        processed_images.append(img_stack)
-        max_depth = max(max_depth, img_stack.shape[1])  # track max D
+        # Each img: [1, H, W] → stack → [D, 1, H, W]
+        stacked = torch.stack(img_list)  # [D, 1, H, W]
+        max_depth = max(max_depth, stacked.shape[0])
+        processed_images.append(stacked)
 
-    # Pad to match max D
+    # Pad to max depth
     padded_images = []
     for img in processed_images:
-        d = img.shape[1]
+        d = img.shape[0]
         if d < max_depth:
-            pad = torch.zeros((1, max_depth - d, img.shape[2], img.shape[3]), device=img.device)
-            img = torch.cat([img, pad], dim=1)
+            pad = torch.zeros((max_depth - d, *img.shape[1:]), device=img.device)
+            img = torch.cat([img, pad], dim=0)
         padded_images.append(img)
 
-    batch_images = torch.stack(padded_images)  # [B, D, H, W]
+    batch_images = torch.stack(padded_images)  # [B, D, 1, H, W]
     gene_tensor = torch.stack(gene_values)
 
     return batch_images, None, gene_tensor, None
+
+def extract_index_number(filename):
+    try:
+        base = os.path.splitext(filename)[0]        # e.g., "AX-123"
+        parts = base.split('-')
+        number_part = parts[-1]                     # get "123"
+        return int(number_part)
+    except (IndexError, ValueError):
+        return float('inf')  # Push malformed filenames to the end
