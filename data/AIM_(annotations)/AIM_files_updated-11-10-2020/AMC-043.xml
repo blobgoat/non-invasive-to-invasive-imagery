@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ImageAnnotationCollection aimVersion="AIMv4_0" xmlns="gme://caCORE.caCORE/4.4/edu.northwestern.radiology.AIM" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="gme://caCORE.caCORE/4.4/edu.northwestern.radiology.AIM AIM_v4_rv44_XML.xsd">
+<uniqueIdentifier root="eh50yzn2nhjf9k8wuvnp0afqoqcr0x9w8cbp0and"></uniqueIdentifier>
+<dateTime value="2014-09-15T16:56:47"></dateTime>
+<user>
+<name value="anonymized"></name>
+<loginName value="anonymized"></loginName>
+<roleInTrial></roleInTrial>
+</user>
+<equipment>
+<manufacturerName value="GE MEDICAL SYSTEMS"></manufacturerName>
+<manufacturerModelName value=""></manufacturerModelName>
+<softwareVersion value="gmp_hde.74"></softwareVersion>
+</equipment>
+<person>
+<name value="anonymized"></name>
+<id value="AMC-043"></id>
+<birthDate value=""></birthDate>
+<sex value="M"></sex>
+<ethnicGroup></ethnicGroup>
+</person>
+<imageAnnotations>
+<ImageAnnotation>
+<uniqueIdentifier root="xdwxmngjmh6f2vxj7ecn90hlu0i0acnjbtf4g004"></uniqueIdentifier>
+<typeCode code="LT1" codeSystem="Lung Template" codeSystemName="Lung Template"></typeCode>
+<dateTime value="2014-09-15T16:56:47"></dateTime>
+<name value="Lesion1"></name>
+<comment value="CT / 1.25MM CHEST BONE / 134"></comment>
+<imagingPhysicalEntityCollection>
+<ImagingPhysicalEntity>
+<uniqueIdentifier root="iphw1xfn2klydqp72doi6jky38mt73fgno3ejgu1"></uniqueIdentifier>
+<typeCode code="RID1315" codeSystem="lower lobe of right lung" codeSystemName="RadLex_3.9.1" codeSystemVersion=""></typeCode>
+<annotatorConfidence value="0.0"></annotatorConfidence>
+<label value="Anatomic Location"></label>
+</ImagingPhysicalEntity>
+</imagingPhysicalEntityCollection>
+<imagingObservationEntityCollection>
+<ImagingObservationEntity>
+<uniqueIdentifier root="2msjgj1q7kokbdi8mr39vofhhjnvebzzv5xp7eni"></uniqueIdentifier>
+<typeCode code="RID39056" codeSystem=" lung mass" codeSystemName="RadLex3.8" codeSystemVersion=""></typeCode>
+<annotatorConfidence value="0.0"></annotatorConfidence>
+<label value="Lung Nodule"></label>
+<comment></comment>
+<imagingObservationCharacteristicCollection>
+<ImagingObservationCharacteristic>
+<typeCode code="RID5828" codeSystem="peripheral" codeSystemName="RadLex_3.9.1" codeSystemVersion=""></typeCode>
+<annotatorConfidence value="0.0"></annotatorConfidence>
+<label value="Axial Location"></label>
+<comment></comment>
+</ImagingObservationCharacteristic>
+<ImagingObservationCharacteristic>
+<typeCode code="RID46011" codeSystem="partially solid" codeSystemName="RadLex.3.10"></typeCode>
+<typeCode code="LT3" codeSystem="Solid greaterThan 5mm" codeSystemName="LungTemplate" codeSystemVersion=""></typeCode>
+<annotatorConfidence value="0.0"></annotatorConfidence>
+<label value="Nodule Attenuation"></label>
+<comment></comment>
+</ImagingObservationCharacteristic>
+<ImagingObservationCharacteristic>
+<typeCode code="RID46015" codeSystem="internal air bronchogram sign" codeSystemName="RadLex3.9.1" codeSystemVersion=""></typeCode>
+<annotatorConfidence value="0.0"></annotatorConfidence>
+<label value="Nodule Internal Features"></label>
+<comment></comment>
+</ImagingObservationCharacteristic>
+<ImagingObservationCharacteristic>
+<typeCode code="RID5809" codeSystem="irregular" codeSystemName="RadLex" codeSystemVersion=""></typeCode>
+<annotatorConfidence value="0.0"></annotatorConfidence>
+<label value="Nodule Margins-Primary Pattern"></label>
+<comment></comment>
+</ImagingObservationCharacteristic>
+<ImagingObservationCharacteristic>
+<typeCode code="RID34283" codeSystem="poorly defined" codeSystemName="RadLex.3.10" codeSystemVersion=""></typeCode>
+<annotatorConfidence value="0.0"></annotatorConfidence>
+<label value="Nodule Margins-Secondary Pattern"></label>
+<comment></comment>
+</ImagingObservationCharacteristic>
+<ImagingObservationCharacteristic>
+<typeCode code="RID5757" codeSystem="complex" codeSystemName="RadLex" codeSystemVersion=""></typeCode>
+<annotatorConfidence value="0.0"></annotatorConfidence>
+<label value="Nodule Shape"></label>
+<comment></comment>
+</ImagingObservationCharacteristic>
+<ImagingObservationCharacteristic>
+<typeCode code="RID28454" codeSystem="none" codeSystemName="RadLex" codeSystemVersion=""></typeCode>
+<annotatorConfidence value="0.0"></annotatorConfidence>
+<label value="Nodule Calcification"></label>
+<comment></comment>
+</ImagingObservationCharacteristic>
+<ImagingObservationCharacteristic>
+<typeCode code="RID46018" codeSystem="attachment to pleura" codeSystemName="RadLex.3.10" codeSystemVersion=""></typeCode>
+<annotatorConfidence value="0.0"></annotatorConfidence>
+<label value="Nodule Associated Findings"></label>
+<comment></comment>
+</ImagingObservationCharacteristic>
+<ImagingObservationCharacteristic>
+<typeCode code="RID46034" codeSystem="pleural retraction" codeSystemName="RadLex.3.10" codeSystemVersion=""></typeCode>
+<annotatorConfidence value="0.0"></annotatorConfidence>
+<label value="Nodule Associated Findings"></label>
+<comment></comment>
+</ImagingObservationCharacteristic>
+<ImagingObservationCharacteristic>
+<typeCode code="RID13173" codeSystem="normal" codeSystemName="RadLex3.10_NS" codeSystemVersion=""></typeCode>
+<annotatorConfidence value="0.0"></annotatorConfidence>
+<label value="Nodule Periphery"></label>
+<comment></comment>
+</ImagingObservationCharacteristic>
+<ImagingObservationCharacteristic>
+<typeCode code="RID28473" codeSystem="absent" codeSystemName="RadLex3.10_NS" codeSystemVersion=""></typeCode>
+<annotatorConfidence value="0.0"></annotatorConfidence>
+<label value="Satellite Nodules in Primary Lesion Lobe (greater than 4mm noncalcified)"></label>
+<comment></comment>
+</ImagingObservationCharacteristic>
+<ImagingObservationCharacteristic>
+<typeCode code="RID28473" codeSystem="absent" codeSystemName="RadLex3.10_NS" codeSystemVersion=""></typeCode>
+<annotatorConfidence value="0.0"></annotatorConfidence>
+<label value="Nodules in Non-Lesion Lobe Same Lung (greater than 4mm noncalcified)"></label>
+<comment></comment>
+</ImagingObservationCharacteristic>
+<ImagingObservationCharacteristic>
+<typeCode code="RID5741" codeSystem="solid" codeSystemName="RadLex3.10_NS" codeSystemVersion=""></typeCode>
+<annotatorConfidence value="0.0"></annotatorConfidence>
+<label value="Nodules in Contralateral Lung (gretater than 4mm noncalcified)"></label>
+<comment></comment>
+</ImagingObservationCharacteristic>
+<ImagingObservationCharacteristic>
+<typeCode code="RID28473" codeSystem="absent" codeSystemName="RadLex3.10_NS" codeSystemVersion=""></typeCode>
+<annotatorConfidence value="0.0"></annotatorConfidence>
+<label value="Centrilobular Nodules - Diffuse (RB type nodules)"></label>
+<comment></comment>
+</ImagingObservationCharacteristic>
+<ImagingObservationCharacteristic>
+<typeCode code="RID28472" codeSystem="present" codeSystemName="RadLex3.10_NS" codeSystemVersion=""></typeCode>
+<annotatorConfidence value="0.0"></annotatorConfidence>
+<label value="Emphysema"></label>
+<comment></comment>
+</ImagingObservationCharacteristic>
+<ImagingObservationCharacteristic>
+<typeCode code="RID46023" codeSystem="panacinar" codeSystemName="RadLex3.10_NS" codeSystemVersion=""></typeCode>
+<annotatorConfidence value="0.0"></annotatorConfidence>
+<label value="Primary Emphysema Pattern"></label>
+<comment></comment>
+</ImagingObservationCharacteristic>
+<ImagingObservationCharacteristic>
+<typeCode code="T30" codeSystem="lower predominant" codeSystemName="LungTemplate" codeSystemVersion=""></typeCode>
+<annotatorConfidence value="0.0"></annotatorConfidence>
+<label value="Primary Distribution"></label>
+<comment></comment>
+</ImagingObservationCharacteristic>
+<ImagingObservationCharacteristic>
+<typeCode code="RID5770" codeSystem="both" codeSystemName="RadLex3.10_NS" codeSystemVersion=""></typeCode>
+<annotatorConfidence value="0.0"></annotatorConfidence>
+<label value="Primary Emphysema Laterality"></label>
+<comment></comment>
+</ImagingObservationCharacteristic>
+<ImagingObservationCharacteristic>
+<typeCode code="RID28505" codeSystem="centrilobular" codeSystemName="RadLex3.10_NS" codeSystemVersion=""></typeCode>
+<annotatorConfidence value="0.0"></annotatorConfidence>
+<label value="Secondary Emmphysema Pattern"></label>
+<comment></comment>
+</ImagingObservationCharacteristic>
+<ImagingObservationCharacteristic>
+<typeCode code="T28" codeSystem="upper predominant" codeSystemName="LungTemplate" codeSystemVersion=""></typeCode>
+<annotatorConfidence value="0.0"></annotatorConfidence>
+<label value="Secondary Emhysema Distribution"></label>
+<comment></comment>
+</ImagingObservationCharacteristic>
+<ImagingObservationCharacteristic>
+<typeCode code="RID5770" codeSystem="both" codeSystemName="RadLex3.10_NS" codeSystemVersion=""></typeCode>
+<annotatorConfidence value="0.0"></annotatorConfidence>
+<label value="Secondary Emphysema Laterality"></label>
+<comment></comment>
+</ImagingObservationCharacteristic>
+<ImagingObservationCharacteristic>
+<typeCode code="T37" codeSystem="moderate severity (26-50%)" codeSystemName="LungTemplate" codeSystemVersion=""></typeCode>
+<annotatorConfidence value="0.0"></annotatorConfidence>
+<label value="Overall Emmphysema Severity"></label>
+<comment></comment>
+</ImagingObservationCharacteristic>
+<ImagingObservationCharacteristic>
+<typeCode code="RID28473" codeSystem="absent" codeSystemName="RadLex3.10_NS" codeSystemVersion=""></typeCode>
+<annotatorConfidence value="0.0"></annotatorConfidence>
+<label value="Fibrosis"></label>
+<comment></comment>
+</ImagingObservationCharacteristic>
+</imagingObservationCharacteristicCollection>
+</ImagingObservationEntity>
+</imagingObservationEntityCollection>
+<markupEntityCollection>
+<MarkupEntity xsi:type="TwoDimensionCircle">
+<uniqueIdentifier root="wskh4rtkaqt1uei93cixih0iyk3t2egiw4a7utr3"></uniqueIdentifier>
+<shapeIdentifier value="0"></shapeIdentifier>
+<includeFlag value="true"></includeFlag>
+<lineColor value=""></lineColor>
+<lineOpacity value=""></lineOpacity>
+<lineStyle value=""></lineStyle>
+<lineThickness value=""></lineThickness>
+<imageReferenceUid root="1.3.6.1.4.1.14519.5.2.1.4334.1501.294379171687404633007760851841"></imageReferenceUid>
+<referencedFrameNumber value="134"></referencedFrameNumber>
+<twoDimensionSpatialCoordinateCollection>
+<TwoDimensionSpatialCoordinate>
+<coordinateIndex value="0"></coordinateIndex>
+<x value="126.65447652599565"></x>
+<y value="387.6760734465089"></y>
+</TwoDimensionSpatialCoordinate>
+<TwoDimensionSpatialCoordinate>
+<coordinateIndex value="1"></coordinateIndex>
+<x value="127.12058652049657"></x>
+<y value="390.9388434080153"></y>
+</TwoDimensionSpatialCoordinate>
+</twoDimensionSpatialCoordinateCollection>
+</MarkupEntity>
+</markupEntityCollection>
+<imageReferenceEntityCollection>
+<ImageReferenceEntity xsi:type="DicomImageReferenceEntity">
+<uniqueIdentifier root="1edahqmz4zs3ad5xe9c2g8e0g5rcqnlu4y1hwg19"></uniqueIdentifier>
+<imageStudy>
+<instanceUid root="1.3.6.1.4.1.14519.5.2.1.4334.1501.325796976312468883363369222116"></instanceUid>
+<startDate value="1994-06-23T08:37:36"></startDate>
+<startTime value="08:37:36"></startTime>
+<imageSeries>
+<instanceUid root="1.3.6.1.4.1.14519.5.2.1.4334.1501.147763611978067120776670681980"></instanceUid>
+<modality code="" codeSystem="" codeSystemName="" codeSystemVersion=""></modality>
+<imageCollection>
+<Image>
+<sopClassUid root=""></sopClassUid>
+<sopInstanceUid root="1.3.6.1.4.1.14519.5.2.1.4334.1501.294379171687404633007760851841"></sopInstanceUid>
+</Image>
+</imageCollection>
+</imageSeries>
+</imageStudy>
+</ImageReferenceEntity>
+</imageReferenceEntityCollection>
+</ImageAnnotation>
+</imageAnnotations>
+</ImageAnnotationCollection>
