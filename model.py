@@ -61,12 +61,58 @@ class CNNToRNA(nn.Module):
         pooled = features.mean(dim=1)        # [B, emb_dim]
         return self.regressor(pooled)        # [B, num_genes]
 
+class CNNClassifier(nn.Module):
+    """
+    CNN-based classifier for gene expression categories.
+    """
+    def __init__(self, cnn_encoder, embedding_dim=128, num_classes=3):  # or 2 for binary
+        super().__init__()
+        self.encoder = cnn_encoder
+        self.classifier = nn.Sequential(
+            nn.Linear(embedding_dim, 128),
+            nn.ReLU(),
+            nn.Dropout(0.3),
+            nn.Linear(128, num_classes)
+        )
+
+    def forward(self, images):  # images: [B, N, 1, H, W]
+        B, N, C, H, W = images.shape
+        images = images.view(B * N, C, H, W)
+
+        features = self.encoder(images)        # [B*N, emb_dim]
+        features = features.view(B, N, -1)     # [B, N, emb_dim]
+
+        pooled = features.mean(dim=1)          # [B, emb_dim]
+        return self.classifier(pooled)         # [B, num_classes]
+
+
+
+class CNNClassifier(nn.Module):
+    def __init__(self, cnn_encoder, embedding_dim=128, num_classes=3):  # or 2 for binary
+        super().__init__()
+        self.encoder = cnn_encoder
+        self.classifier = nn.Sequential(
+            nn.Linear(embedding_dim, 64),
+            nn.ReLU(),
+            nn.Dropout(0.3),
+            nn.Linear(64, num_classes)
+        )
+
+    def forward(self, images):  # images: [B, N, 1, H, W]
+        B, N, C, H, W = images.shape
+        images = images.view(B * N, C, H, W)
+
+        features = self.encoder(images)  # [B*N, emb_dim]
+        features = features.view(B, N, -1)  # [B, N, emb_dim]
+        pooled = features.mean(dim=1)      # [B, emb_dim]
+
+        return self.classifier(pooled)     # [B, num_classes]
 
 from torch.amp import autocast, GradScaler
 
 from tqdm import tqdm
 
-def train_model(model, train_loader, val_loader, criterion, optimizer, device,
+def train_model(model, train_loader, val_loader, criterion, optimizer, device="cuda",
                 num_epochs=50, patience=5, min_delta=0.001):
     model.to(device)
 
