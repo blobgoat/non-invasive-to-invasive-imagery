@@ -3,3 +3,4 @@ data/Images/*
 __pycache__/*
 models/*
 gene_performance.pth
+gene_performance3.pth
