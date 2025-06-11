@@ -1,6 +1,20 @@
-# non-invasive-to-invasive-imagery
+### FINAL REPORT
+Problem: With CNN’s, generating data obtained from invasive techniques using only non-invasive methods from lung cancer.
+By: Jacob Seaman
+
 
 Warning git is very poorly managed lololol
+
+PAPER: 
+Bakr, S., Gevaert, O., Echegaray, S. et al. A radiogenomic dataset of non-small cell lung cancer. Sci Data 5, 180202 (2018). https://doi.org/10.1038/sdata.2018.202
+
+DATA:
+RNA:
+Gene Expression Omnibus GSE103584 (2018)
+
+IMAGES:
+Bakr, S. et al. The Cancer Imaging Archive https://doi.org/10.7937/K9/TCIA.2017.7hs46erv (2017)
+
 
 ### Data preprocessing
 Summary: data preprocessing can be found in .\rna_preprocessing. This ultimately creates a table ./data/df_zscore.csv which is used in other notebooks, where I explore different methodologies.
