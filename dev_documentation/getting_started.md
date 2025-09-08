@@ -39,7 +39,6 @@ Complete the download, which may take several hours. If you forget to turn off s
 * Upon prompting at the end, if prompted to retry downloading sets that gave errors, click **yes**.
 
 - **Please note** during installation that one set of images early on reported 'Not Authorized'. If you have an authorized account, you may be able to get access to this set. For our purposes, we did not.
-- 
 
 Once done, the images should now be extracted into your folder on the computer.
 
