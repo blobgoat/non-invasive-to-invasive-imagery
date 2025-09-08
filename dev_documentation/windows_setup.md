@@ -19,15 +19,15 @@ For step 1, replace the links and links as appropriate. If you have already done
 
 1. Clone everything in the github to the laptop
 
-- <https://github.com/blobgoat/non-invasive-to-invasive-imagery>
+- <https://github.com/blobgoat/non-invasive-to-invasive-imagery> *
 - using Git Bash run:     cd ~/Documents/GitHub_Projects
         - (replace link with your desired path to set the repository in)
 - Run: git clone https://github.com/blobgoat/non-invasive-to-invasive-imagery.git
 
- i. *Replace with the appropriate url if url has changed
+ *Replace with the appropriate url if url has changed
 
 2. When done, go to: <https://wiki.cancerimagingarchive.net/display/NBIA/Downloading+TCIA+Images>, to install the image installer. For windows, follow the instructions of the launcher. For other systems, follow the website instructions for installation.
 
-- **Note** for Linux commands, Git Bash may not be the appropriate choice for running terminal commands for installation. Choose terminal app appropriately in this case
+- **Note:** for Linux commands, Git Bash may not be the appropriate choice for running terminal commands for installation. Choose terminal app appropriately in this case
 
 - For non-Windows users, the instructions may differ a little bit. Troubleshoot using the website instructions as necessary.
